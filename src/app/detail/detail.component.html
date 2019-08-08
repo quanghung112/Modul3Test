@@ -1,0 +1,31 @@
+<main class="my-form">
+  <div class="cotainer">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header text-center"><h3>Chi tiet sach</h3></div>
+          <div class="card-body" *ngIf="book">
+            <ul class="list-group">
+              <li class="list-group-item">Ten sach: {{book.title}}</li>
+              <li class="list-group-item">Tac gia: {{book.author}}</li>
+              <li class="list-group-item">Mo ta: {{book.description}}</li>
+            </ul>
+            <div class="row justify-content-center ">
+              <a [routerLink]="['']">
+                <button type="button" class="btn btn-secondary">Xem danh sach</button>
+              </a>
+            </div>
+          </div>
+          <div *ngIf="!book">
+            <p>
+              Sach khong ton tai
+            </p>
+            <a [routerLink]="['']">
+              <button type="button" class="btn btn-secondary">Xem danh sach</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

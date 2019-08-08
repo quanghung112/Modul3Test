@@ -1,0 +1,44 @@
+<main class="my-form">
+  <div class="cotainer">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card" *ngIf="books">
+          <div class="card-header text-center"><h3>Danh sach cuon sach</h3></div>
+              <span>Co {{books.length}} cuon sach</span>
+              <a [routerLink]="['create']" >
+                <button class="btn btn-round btn-info btn-sm"><i class="material-icons">Them moi sach</i></button>
+              </a>
+            <table>
+              <thead class="thead-dark">
+              </thead>
+              <tr>
+                <th class="text-center" scope="col">STT</th>
+                <th class="text-center" scope="col">Ten sach</th>
+                <th class="text-center" scope="col">Tac gia</th>
+                <th class="text-center" scope="col">Tuong tac</th>
+              </tr>
+              <tbody>
+              <tr *ngFor="let book of books; index as i">
+                <th scope="row" class="text-center">{{i + 1}}</th>
+                <td><a [routerLink]="['detail',book.id]">{{book.title}}</a></td>
+                <td>{{book.author}}</td>
+                <td class="text-center">
+                  <a [routerLink]="['update', book.id]">
+                    <button class="btn btn-round btn-info btn-sm"><i class="material-icons">sua sach</i></button>
+                  </a>/
+                  <a [routerLink]="['delete', book.id]">
+                    <button class="btn btn-round btn-info btn-sm"><i class="material-icons">xoa sach</i></button>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      <div *ngIf="!books">
+        Khong co cuon sach nao
+      </div>
+      </div>
+    </div>
+</main>
+
+
